@@ -1,0 +1,30 @@
+name: Verifier 🔎
+
+on: [ pull_request ]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout sources 📄
+        uses: actions/checkout@v4
+
+      - name: Setup Java ☕
+        uses: actions/setup-java@v5
+        with:
+          distribution: 'temurin'
+          java-version: 24
+
+      - name: Setup Gradle 💾
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Run spotless ️🧶
+        run: ./backend/gradlew -p ./backend/ spotlessCheck
+
+      - name: Run backend tests 🧪
+        run: ./backend/gradlew -p ./backend/ build
