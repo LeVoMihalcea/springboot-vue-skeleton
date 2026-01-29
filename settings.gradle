@@ -1,0 +1,4 @@
+rootProject.name = 'student-skeleton-project'
+
+include 'backend'
+include 'frontend'

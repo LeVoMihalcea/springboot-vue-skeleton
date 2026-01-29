@@ -1,1 +1,16 @@
-.idea
+# IDEs
+.idea/
+*.iml
+.vscode/
+
+# Gradle
+.gradle/
+build/
+**/build/
+
+# Node/Vue
+node_modules/
+dist/
+
+# OS files
+.DS_Store
