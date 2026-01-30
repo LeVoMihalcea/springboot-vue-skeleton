@@ -3,31 +3,31 @@ name: Verifier 🔎
 on: [ pull_request ]
 
 permissions:
-    contents: read
-    pull-requests: write
+  contents: read
+  pull-requests: write
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        steps:
+  build:
+    runs-on: ubuntu-latest
+    steps:
 
-            -   name: Checkout sources 📄
-                uses: actions/checkout@v6
+      - name: Checkout sources 📄
+        uses: actions/checkout@v6
 
-            -   name: Setup Java ☕
-                uses: actions/setup-java@v5
-                with:
-                    distribution: 'temurin'
-                    java-version: 24
+      - name: Setup Java ☕
+        uses: actions/setup-java@v5
+        with:
+          distribution: 'temurin'
+          java-version: 24
 
-            -   name: Setup Gradle 💾
-                uses: gradle/actions/setup-gradle@v4
+      - name: Setup Gradle 💾
+        uses: gradle/actions/setup-gradle@v4
 
-            -   name: Set up editorconfig-checker
-                uses: editorconfig-checker/action-editorconfig-checker@main
+      - name: Set up editorconfig-checker
+        uses: editorconfig-checker/action-editorconfig-checker@main
 
-            -   name: Run editorconfig-checker
-                run: editorconfig-checker
+      - name: Run editorconfig-checker
+        run: editorconfig-checker
 
-            -   name: Run backend tests 🧪
-                run: ./backend/gradlew -p ./backend/ build
+      - name: Run backend tests 🧪
+        run: ./backend/gradlew -p ./backend/ build
