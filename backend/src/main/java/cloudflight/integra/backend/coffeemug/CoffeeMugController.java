@@ -3,7 +3,6 @@ package cloudflight.integra.backend.coffeemug;
 import cloudflight.integra.backend.coffeemug.model.CoffeeMugDto;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/coffeemugs")
@@ -18,7 +17,7 @@ public class CoffeeMugController {
 
     @GetMapping
     public List<CoffeeMugDto> getAll() {
-        return service.getAll().stream().map(mapper::toDto).collect(Collectors.toList());
+        return service.getAll().stream().map(mapper::toDto).toList();
     }
 
     @GetMapping("/{id}")
