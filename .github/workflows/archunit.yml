@@ -1,4 +1,4 @@
-name: ArchUnit Tests 🏛️
+name: Architecture Tests 🏛️
 
 on: [pull_request]
 
